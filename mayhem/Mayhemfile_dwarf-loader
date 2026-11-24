@@ -1,0 +1,10 @@
+project: savantenvs/ctypes.sh
+target: dwarf-loader
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/dwarf-loader/testsuite
+cmds:
+  # mayhem-lint: ok-image-path  (the harness script is only READ from the image)
+  - cmd: /mayhem/mayhem/out/fuzz/bash /mayhem/mayhem/harness/dwarf_loader.sh @@
+    afl: true
+    timeout: 10

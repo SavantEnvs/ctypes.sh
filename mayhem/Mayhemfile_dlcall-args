@@ -1,0 +1,10 @@
+project: savantenvs/ctypes.sh
+target: dlcall-args
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/dlcall-args/testsuite
+cmds:
+  # mayhem-lint: ok-image-path  (the harness script is only READ from the image)
+  - cmd: /mayhem/mayhem/out/fuzz/bash /mayhem/mayhem/harness/dlcall_args.sh @@
+    afl: true
+    timeout: 10

@@ -1,0 +1,5 @@
+int
+pointer:0x1000
+uint16:7
+ushort:3
+uchar:x
